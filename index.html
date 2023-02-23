@@ -11,6 +11,29 @@
 <body>
    <div class="header-parent">
     <div class="title">Library</div>
-    <button>ADD A BOOK!</button>
+    <button class="add-button">ADD A BOOK!</button>
    </div>
+   <div class="input-parent none">
+     <div class="input-form">
+      <div class="input-child">
+        <button class="close-button">X</button>
+      </div>  
+      <div class="input-child">  
+       <label for="book-name">Book name:</label>
+       <input type="text" value="value" id="book-name" name="book-name">
+      </div>
+      <div class="input-child">
+       <label for="book-author">Author:</label>
+       <input type="text" value="value" id="book-author" name="book-author">
+      </div>
+      <div class="input-child">
+       <label for="read">Have you read this book?</label>
+       <input type="checkbox" name="read" id="read">
+      </div>
+      <div class="input-child">
+        <button type="submit" class="submit-button">SUBMIT</button>
+      </div>
+     </div>
+    </div>
+</body> 
 </html>
