@@ -3,7 +3,6 @@ const addButton = document.querySelector('.add-button');
 const closeFormButton = document.querySelector('.close-button');
 const inputForm = document.querySelector('.input-parent');
 const library = document.querySelector('.library');
-const book = document.querySelector('.book');
 const bookName = document.querySelector('#book-name');
 const bookAuthor = document.querySelector('#book-author');
 const bookRead = document.querySelector('#read');
@@ -19,7 +18,12 @@ class Book {
 
 function bookAppending() {
   const newBook = document.createElement('div');
+  for (let i = 0; i < bookLibrary.length; i++) {
+    newBook.classList.add(`${i}`);
+    newBook.classList.remove(`${i - 1}`);
+  }
   newBook.classList.add('book');
+  newBook.innerHTML += '<button class="close-button1">X</button>';
   newBook.append(`Book name: ${bookLibrary[bookLibrary.length - 1].name}`);
   newBook.innerHTML += '<br>';
   newBook.append(`Book author: ${bookLibrary[bookLibrary.length - 1].author}`);
@@ -41,6 +45,12 @@ function bookAppending() {
         questionSpan[i].style.display = 'none';
       });
     }
+  }
+  const removeButton = document.querySelectorAll('.close-button1');
+  for (let i = 0; i < removeButton.length; i++) {
+    removeButton[i].addEventListener('click', () => {
+      removeButton[i].parentElement.style.display = 'none';
+    });
   }
 }
 
