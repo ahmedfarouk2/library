@@ -29,10 +29,11 @@ function bookAppending() {
   newBook.append(`Book author: ${bookLibrary[bookLibrary.length - 1].author}`);
   newBook.innerHTML += '<br>';
   newBook.append('Have I read this book?:');
-  newBook.innerHTML += `<span class="read-span">${bookLibrary[bookLibrary.length - 1].read}</span>`;
   if (bookLibrary[bookLibrary.length - 1].read === true) {
+    newBook.innerHTML += `<span>${bookLibrary[bookLibrary.length - 1].read}</span>`;
     library.append(newBook);
   } else {
+    newBook.innerHTML += `<span class="read-span">${bookLibrary[bookLibrary.length - 1].read}</span>`;
     newBook.innerHTML += '<span class="question-span">Did you finish reading this book? <input type="checkbox" name="finish-reading" id="finish-reading"></span>';
     library.append(newBook);
     const finishedReading = document.querySelectorAll('#finish-reading');
@@ -40,9 +41,11 @@ function bookAppending() {
     for (let i = 0; i < finishedReading.length; i++) {
       finishedReading[i].addEventListener('click', () => {
         const readSpan = document.querySelectorAll('.read-span');
-        readSpan[i].innerText = 'true';
-        finishedReading[i].style.display = 'none';
-        questionSpan[i].style.display = 'none';
+        if (readSpan[i].innerText = 'false') {
+          readSpan[i].innerText = 'true';
+          finishedReading[i].style.display = 'none';
+          questionSpan[i].style.display = 'none';
+        }
       });
     }
   }
